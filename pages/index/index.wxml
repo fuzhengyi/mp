@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+ <swiper indicator-dots="true"
+    autoplay="true" interval="1500" duration="300" indicator-color="rgba(5,5,5,.5)" indicator-active-color="red">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>        
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper> 
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class='test'>
+    <view bindtap='scanCode'>测试扫码</view>
+    <view bindtap='getLocation'>获取当前位置</view>
+    <view bindtap='goRoute'>路由演示</view>
+  </view>
+  <button open-type='share'>点击我分享给更多朋友</button>
+  <functional-page-navigator name="loginAndGetUserInfo" version="release" bind:success="loginSuccess">
+    <button>登录到插件</button>
+  </functional-page-navigator>
+</view>

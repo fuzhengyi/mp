@@ -1,0 +1,31 @@
+<!--pages/list/list.wxml-->
+<text>pages/list/list.wxml</text>
+
+<wxs module="m1">
+  var msg = "hello world";
+  module.exports.message = msg;
+</wxs>
+<view> {{m1.message}} </view>
+
+<wxs module="m2">
+  var msg = "你好 小程序";
+  module.exports.message = msg;
+</wxs>
+<view> {{m2.message}} </view>
+
+<wxs module="m3">
+  var getMax = function(array){
+    var max;
+    //array: [1, 2, 3, 4, 5, 1, 2, 3, 1]
+    max = array[0];
+    for(var i = 1; i < array.length; ++i){
+      if(max < array[i]){
+        max = array[i];
+      }
+    }
+    return max;
+  }
+  module.exports.getMax = getMax;
+</wxs>
+
+<view> {{m3.getMax(array)}} </view>

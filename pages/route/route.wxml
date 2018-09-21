@@ -1,0 +1,4 @@
+<!--pages/route.wxml-->
+<view>
+  测试路由
+</view>
